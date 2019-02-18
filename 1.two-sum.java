@@ -36,14 +36,12 @@ class Solution {
         int[] answer = new int[2];
         HashMap<Integer,Integer> m = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            m.put(nums[i], i);
-        }
-        for (int i = 0; i < nums.length; i++) {
             int t = target - nums[i];
-            if(m.containsKey(t) && m.get(t) != i){
+            if(m.containsKey(t)){
                 answer[0] = i;
                 answer[1] = m.get(t);
             }
+            m.put(nums[i], i);
         }
         return answer;
     }
